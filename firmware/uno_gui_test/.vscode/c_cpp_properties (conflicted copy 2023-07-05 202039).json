@@ -1,0 +1,66 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/include",
+                "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/src",
+                "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/Adafruit TouchScreen",
+                "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/MCUFRIEND_kbv",
+                "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/MCUFRIEND_kbv/utility",
+                "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/Adafruit GFX Library",
+                "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/Adafruit BusIO",
+                "/Users/david/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/Users/david/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "/Users/david/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/Users/david/.platformio/packages/framework-arduino-avr/variants/standard",
+                "/Users/david/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/Users/david/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/Users/david/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/include",
+                    "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/src",
+                    "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/Adafruit TouchScreen",
+                    "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/MCUFRIEND_kbv",
+                    "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/MCUFRIEND_kbv/utility",
+                    "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/Adafruit GFX Library",
+                    "/Users/david/Desktop/owncloud/github/Huawei-R4850G2-esk8-charger/firmware/uno_gui_test/.pio/libdeps/uno/Adafruit BusIO",
+                    "/Users/david/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/Users/david/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "/Users/david/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/Users/david/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "/Users/david/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/Users/david/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/Users/david/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60107",
+                "ARDUINO_AVR_UNO",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega328P__",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/Users/david/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,85 @@
+#include "lvgl.h"
+
+static lv_obj_t* label_voltage;
+static lv_obj_t* label_current;
+static lv_obj_t* main_screen;
+static lv_obj_t* slider_screen;
+static lv_obj_t* slider;
+static lv_obj_t* slider_label;
+
+static float voltage = 12.0;
+static float current = 1.5;
+static bool setting_voltage = true;
+
+static void update_labels() {
+  char buf[32];
+  snprintf(buf, sizeof(buf), "Napětí: %.2f V", voltage);
+  lv_label_set_text(label_voltage, buf);
+
+  snprintf(buf, sizeof(buf), "Proud: %.2f A", current);
+  lv_label_set_text(label_current, buf);
+}
+
+static void back_btn_event(lv_event_t* e) {
+  int val = lv_slider_get_value(slider);
+  if (setting_voltage)
+    voltage = val / 10.0;
+  else
+    current = val / 100.0;
+  update_labels();
+  lv_scr_load(main_screen);
+}
+
+static void open_slider(lv_event_t* e) {
+  setting_voltage = (e->user_data == (void*)1);
+  lv_scr_load(slider_screen);
+  lv_label_set_text(slider_label, setting_voltage ? "Nastav napětí (V)" : "Nastav proud (A)");
+  lv_slider_set_range(slider, 0, setting_voltage ? 240 : 200);
+  lv_slider_set_value(slider, setting_voltage ? voltage * 10 : current * 100, LV_ANIM_OFF);
+}
+
+void ui_init() {
+  main_screen = lv_obj_create(NULL);
+  lv_obj_clear_flag(main_screen, LV_OBJ_FLAG_SCROLLABLE);
+
+  // Napětí
+  lv_obj_t* btn_v = lv_btn_create(main_screen);
+  lv_obj_set_size(btn_v, 140, 100);
+  lv_obj_align(btn_v, LV_ALIGN_LEFT_MID, 20, 0);
+  label_voltage = lv_label_create(btn_v);
+  lv_label_set_text(label_voltage, "Napětí: -- V");
+  lv_obj_center(label_voltage);
+  lv_obj_add_event_cb(btn_v, open_slider, LV_EVENT_CLICKED, (void*)1);
+
+  // Proud
+  lv_obj_t* btn_i = lv_btn_create(main_screen);
+  lv_obj_set_size(btn_i, 140, 100);
+  lv_obj_align(btn_i, LV_ALIGN_RIGHT_MID, -20, 0);
+  label_current = lv_label_create(btn_i);
+  lv_label_set_text(label_current, "Proud: -- A");
+  lv_obj_center(label_current);
+  lv_obj_add_event_cb(btn_i, open_slider, LV_EVENT_CLICKED, (void*)2);
+
+  update_labels();
+
+  // Slider screen
+  slider_screen = lv_obj_create(NULL);
+  lv_obj_clear_flag(slider_screen, LV_OBJ_FLAG_SCROLLABLE);
+
+  slider_label = lv_label_create(slider_screen);
+  lv_obj_align(slider_label, LV_ALIGN_TOP_MID, 0, 20);
+
+  slider = lv_slider_create(slider_screen);
+  lv_obj_set_width(slider, 200);
+  lv_obj_align(slider, LV_ALIGN_CENTER, 0, 0);
+
+  lv_obj_t* back_btn = lv_btn_create(slider_screen);
+  lv_obj_set_size(back_btn, 100, 40);
+  lv_obj_align(back_btn, LV_ALIGN_BOTTOM_MID, 0, -20);
+  lv_obj_t* lbl = lv_label_create(back_btn);
+  lv_label_set_text(lbl, "Zpět");
+  lv_obj_center(lbl);
+  lv_obj_add_event_cb(back_btn, back_btn_event, LV_EVENT_CLICKED, NULL);
+
+  lv_scr_load(main_screen);
+}
